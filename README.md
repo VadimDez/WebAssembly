@@ -5,9 +5,9 @@ docker build -t webassembly .
 ```
 
 ```
-docker run -it webassembly /bin/bash
+docker run --mount src="$(pwd)",target=/code,type=bind -it webassembly /bin/bash
 ```
 
 ```
-source ./emsdk_env.sh
+cd /emsdk/ && source ./emsdk_env.sh
 ```
