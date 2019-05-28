@@ -2,7 +2,7 @@
 
 WebAssembly tutorial
 
-Step-by-step guide
+### Step-by-step guide
 
 #### Build Docker
 
@@ -48,3 +48,7 @@ And then open [http://localhost/hello.html](http://localhost/hello.html)
 
 - https://mbebenita.github.io/WasmExplorer/
 - https://webassembly.studio/
+
+## License
+
+[MIT](https://tldrlegal.com/license/mit-license) © [Vadym Yatsyuk](https://github.com/vadimdez)
