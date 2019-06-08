@@ -24,13 +24,13 @@ cd /emsdk/ && source ./emsdk_env.sh
 
 #### Compile C code to WASM
 
-navigate to `src` folder:
+1. navigate to `src` folder:
 
 ```
 cd /code/src/
 ```
 
-and run:
+2. and run:
 
 ```
 emcc hello.c  -s WASM=1 -o hello.html
