@@ -10,6 +10,6 @@ SHELL ["/bin/bash", "-c"]
 RUN set -x \
     && git clone https://github.com/emscripten-core/emsdk.git \
     && cd emsdk \
-    && ./emsdk install --build=Release sdk-incoming-64bit binaryen-master-64bit \
-    && ./emsdk activate --build=Release sdk-incoming-64bit binaryen-master-64bit \
+    && ./emsdk install latest \
+    && ./emsdk activate latest \
     && source ./emsdk_env.sh 
