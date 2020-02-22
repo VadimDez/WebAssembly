@@ -48,6 +48,7 @@ And then open [http://localhost/hello.html](http://localhost/hello.html)
 
 - https://mbebenita.github.io/WasmExplorer/
 - https://webassembly.studio/
+- https://wapm.io/
 
 ## License
 
