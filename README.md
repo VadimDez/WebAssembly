@@ -35,11 +35,13 @@ cd /code/src/
 2. and run:
 
 ```
-emcc hello.c  -s WASM=1 -o hello.html
+emcc game-of-life.c -s WASM=1 -s EXPORTED_FUNCTIONS="['_getValue', '_updateBoard', '_setValue', '_countNeighbors']"  -o game-of-life.js
 ```
 
 ### Run server and see the result
+
 run in the root folder
+
 ```
 npm run start
 ```

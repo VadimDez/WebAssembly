@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .grid {
+        border: 1px solid black;
+        display: inline-block;
+      }
+
+      .cell {
+        width: 10px;
+        height: 10px;
+        content: " ";
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      .cell.live {
+        background-color: chartreuse;
+      }
+
+      .row {
+        line-height: 10px;
+      }
+    </style>
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <div class="grid"></div>
+    <div>
+      <button onclick="next()">Next</button>
+      <button onclick="start()">Start</button>
+      <button onclick="startWA()">Start WA</button>
+      <button onclick="stop()">Stop</button>
+    </div>
+  </body>
+</html>
