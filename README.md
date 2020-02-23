@@ -12,6 +12,8 @@ docker build -t webassembly .
 
 #### Run shell
 
+In the root folder of the project run:
+
 ```
 docker run --mount src="$(pwd)",target=/code,type=bind -p 8080:8080 -it webassembly /bin/bash
 ```
@@ -37,9 +39,9 @@ emcc hello.c  -s WASM=1 -o hello.html
 ```
 
 ### Run server and see the result
-
+run in the root folder
 ```
-python -m SimpleHTTPServer 8080
+npm run start
 ```
 
 And then open [http://localhost/hello.html](http://localhost/hello.html)

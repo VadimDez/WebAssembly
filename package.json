@@ -1,0 +1,25 @@
+{
+  "name": "webassembly-tutorial",
+  "version": "1.0.0",
+  "description": "WebAssembly tutorial",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VadimDez/WebAssembly.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VadimDez/WebAssembly/issues"
+  },
+  "homepage": "https://github.com/VadimDez/WebAssembly#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
