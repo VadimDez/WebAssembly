@@ -26,7 +26,7 @@ cd /emsdk/ && source ./emsdk_env.sh
 
 #### Compile C code to WASM
 
-1. navigate to `src` folder:
+1. Inside the docker, navigate to `src` folder:
 
 ```
 cd /code/src/
