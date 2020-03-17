@@ -1,17 +1,25 @@
-fetch('./main.wasm').then(response =>
-  response.arrayBuffer()
-).then(bytes => WebAssembly.instantiate(bytes)).then(results => {
-  instance = results.instance;
-  let start = new Date().getTime();
-  document.getElementById("container").textContent = instance.exports.main();
-  console.log("Total: ", new Date().getTime() - start);
-}).catch(console.error);
+fetch("./main2.wasm")
+  .then(response => response.arrayBuffer())
+  .then(bytes => WebAssembly.instantiate(bytes))
+  .then(results => {
+    instance = results.instance;
+    const start = performance.now();
+    document.getElementById("container").textContent = instance.exports.main();
+    const end = performance.now();
+    console.log("Total WebAssembly: ", end - start);
 
-let start = new Date().getTime();
+    jsLoop();
+  })
+  .catch(console.error);
 
-let a = 0;
-for (let i = 0; i < 10000000; i++) {
-  a++;
+function jsLoop() {
+  const start = performance.now();
+
+  let a = 0;
+  for (let i = 0; i < 10000000; i++) {
+    a++;
+  }
+  document.getElementById("result").textContent = a;
+  const end = performance.now();
+  console.log("Total JS: ", end - start);
 }
-document.getElementById("result").textContent = a;
-console.log("Total js: ", new Date().getTime() - start);
