@@ -1,0 +1,12 @@
+FROM alpine:latest
+RUN set -x \
+    && apk update \
+    && apk upgrade \
+    && apk --update --no-cache add bash python2 nodejs cmake curl git gcc clang openjdk8-jre
+SHELL ["/bin/bash", "-c"]
+RUN set -x \
+    && git clone https://github.com/emscripten-core/emsdk.git \
+    && cd emsdk \
+    && ./emsdk install latest \
+    && ./emsdk activate latest \
+    && source ./emsdk_env.sh
