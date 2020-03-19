@@ -29,7 +29,7 @@ cd /emsdk/ && source ./emsdk_env.sh
 1. navigate to `src` folder:
 
 ```
-cd /code/src/
+cd /code/src/game-of-life
 ```
 
 2. and run:
@@ -46,7 +46,7 @@ run in the root folder
 npm run start
 ```
 
-And then open [http://localhost/hello.html](http://localhost/hello.html)
+And then open [http://localhost/hello.html](http://localhost/game-of-life)
 
 ## Links
 

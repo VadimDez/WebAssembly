@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-unsigned int rows = 100;
-unsigned int columns = 100;
-int board[100][100];
-int newBoard[100][100];
+unsigned int rows = 10;
+unsigned int columns = 10;
+int board[10][10];
+int newBoard[10][10];
 
 int countNeighbors(int row, int col) {
   unsigned int neighbors = 0;

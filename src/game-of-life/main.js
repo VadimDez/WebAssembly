@@ -2,20 +2,8 @@ let $grid;
 let board;
 let newBoard;
 let gameProcess;
-
-function renderGrid(rows, columns) {
-  for (let row = 0; row < rows; row++) {
-    let $row = document.createElement("div");
-
-    $row.classList.add("row");
-    for (let col = 0; col < columns; col++) {
-      let $cell = document.createElement("span");
-      $cell.classList.add("cell");
-      $row.appendChild($cell);
-    }
-    $grid.appendChild($row);
-  }
-}
+let setValueWA;
+let updateBoardWA;
 
 function renderGrid(rows, columns) {
   for (let row = 0; row < rows; row++) {
@@ -67,6 +55,8 @@ function getNewValue(row, col) {
 }
 
 function next() {
+  console.log("Next pure JS....");
+  const t0 = performance.now();
   for (let row = 0; row < board.length; row++) {
     for (let col = 0; col < board[0].length; col++) {
       newBoard[row][col] = getNewValue(row, col);
@@ -75,6 +65,8 @@ function next() {
 
   board = JSON.parse(JSON.stringify(newBoard));
   render();
+  const t1 = performance.now();
+  console.log("Call to next took " + (t1 - t0) + " milliseconds.");
 }
 
 function start() {
@@ -82,15 +74,15 @@ function start() {
     return;
   }
 
+  console.log("Starting pure JS...");
+
   gameProcess = setInterval(() => {
-    var t0 = performance.now();
     next();
-    var t1 = performance.now();
-    console.log("Call to next took " + (t1 - t0) + " milliseconds.");
   }, 500);
 }
 
 function stop() {
+  console.log("STopping...");
   clearInterval(gameProcess);
   gameProcess = undefined;
 }
@@ -116,7 +108,7 @@ function addEventsToGrid() {
 
       const value = 1 - board[row][col];
       board[row][col] = value;
-      setValue(row, col, value);
+      setValueWA(row, col, value);
 
       render();
     }
@@ -124,8 +116,8 @@ function addEventsToGrid() {
 }
 
 window.onload = function() {
-  const rows = 100;
-  const columns = 100;
+  const rows = 10;
+  const columns = 10;
   $grid = document.getElementsByClassName("grid")[0];
 
   addEventsToGrid();
@@ -160,11 +152,8 @@ const importObject = {
 
 WebAssembly.instantiateStreaming(fetch("game-of-life.wasm"), importObject).then(
   results => {
-    // Do something with the results!
-    console.log(results.instance.exports);
-
-    setValue = results.instance.exports.setValue;
-    updateBoard = results.instance.exports.updateBoard;
+    setValueWA = results.instance.exports.setValue;
+    updateBoardWA = results.instance.exports.updateBoard;
     getValueWA = results.instance.exports.getValue;
     countNeighborsWA = results.instance.exports.countNeighbors;
   }
@@ -175,17 +164,21 @@ function startWA() {
     return;
   }
 
+  console.log("Starting with WebAssembly...");
+
   gameProcess = setInterval(() => {
-    var t0 = performance.now();
     nextWA();
-    var t1 = performance.now();
-    console.log("WA: Call to next took " + (t1 - t0) + " milliseconds.");
   }, 500);
 }
 
 function nextWA() {
-  updateBoard();
+  console.log("'Next' with WebAssembly...");
+
+  var t0 = performance.now();
+  updateBoardWA();
   renderWA();
+  var t1 = performance.now();
+  console.log("Call to Next WA took " + (t1 - t0) + " milliseconds.");
 }
 
 function renderWA() {
