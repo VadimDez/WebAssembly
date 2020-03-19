@@ -58,6 +58,10 @@ And then open [http://localhost/game-of-life](http://localhost/game-of-life)
 - https://webassembly.studio/
 - https://wapm.io/
 
+## Examples
+
+- http://aws-website-webassemblyskeletalanimation-ffaza.s3-website-us-east-1.amazonaws.com/
+
 ## License
 
 [MIT](https://tldrlegal.com/license/mit-license) © [Vadym Yatsyuk](https://github.com/vadimdez)
