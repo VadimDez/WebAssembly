@@ -46,7 +46,11 @@ run in the root folder
 npm run start
 ```
 
-And then open [http://localhost/hello.html](http://localhost/game-of-life)
+And then open [http://localhost/game-of-life](http://localhost/game-of-life)
+
+### Simple example
+
+[http://localhost/example](http://localhost/example)
 
 ## Links
 
