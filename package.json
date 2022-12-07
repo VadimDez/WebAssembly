@@ -20,6 +20,6 @@
   "homepage": "https://github.com/VadimDez/WebAssembly#readme",
   "devDependencies": {},
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.18.2"
   }
 }
